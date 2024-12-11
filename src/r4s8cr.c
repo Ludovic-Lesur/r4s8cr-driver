@@ -53,7 +53,7 @@ static void _R4S8CR_rx_irq_callback(uint8_t data) {
     // Store incoming byte.
     r4s8cr_ctx.reply[r4s8cr_ctx.reply_size] = data;
     // Manage index.
-    r4s8cr_ctx.reply_size = (r4s8cr_ctx.reply_size + 1) % R4S8CR_REPLY_BUFFER_SIZE_BYTES;
+    r4s8cr_ctx.reply_size = (uint8_t) ((r4s8cr_ctx.reply_size + 1) % R4S8CR_REPLY_BUFFER_SIZE_BYTES);
 }
 
 /*******************************************************************/
