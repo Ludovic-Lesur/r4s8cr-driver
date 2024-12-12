@@ -61,7 +61,9 @@ static void _R4S8CR_flush_buffer(void) {
     // Local variables.
     uint8_t idx = 0;
     // Flush buffer.
-    for (idx=0 ; idx<R4S8CR_REPLY_BUFFER_SIZE_BYTES ; idx++) r4s8cr_ctx.reply[idx] = 0x00;
+    for (idx = 0; idx < R4S8CR_REPLY_BUFFER_SIZE_BYTES; idx++) {
+        r4s8cr_ctx.reply[idx] = 0x00;
+    }
     r4s8cr_ctx.reply_size = 0;
 }
 
@@ -83,12 +85,12 @@ errors:
 /*******************************************************************/
 R4S8CR_status_t R4S8CR_de_init(void) {
     // Local variables.
-   R4S8CR_status_t status = R4S8CR_SUCCESS;
-   // Release hardware interface.
-   status = R4S8CR_HW_de_init();
-   if (status != R4S8CR_SUCCESS) goto errors;
+    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    // Release hardware interface.
+    status = R4S8CR_HW_de_init();
+    if (status != R4S8CR_SUCCESS) goto errors;
 errors:
-   return status;
+    return status;
 }
 
 /*******************************************************************/
@@ -152,7 +154,7 @@ R4S8CR_status_t R4S8CR_read(uint8_t relay_box_id, uint8_t* state) {
         // Check number of received bytes.
         if (r4s8cr_ctx.reply_size >= R4S8CR_REPLY_SIZE_BYTES) {
             // Relays loop.
-            for (idx=0 ; idx<R4S8CR_NUMBER_OF_RELAYS ; idx++) {
+            for (idx = 0; idx < R4S8CR_NUMBER_OF_RELAYS; idx++) {
                 // Get relay state.
                 if (r4s8cr_ctx.reply[R4S8CR_REPLY_HEADER_SIZE + idx] != 0) {
                     (*state) |= (0b1 << idx);
