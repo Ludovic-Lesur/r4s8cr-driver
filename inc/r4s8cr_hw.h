@@ -24,16 +24,25 @@
  *******************************************************************/
 typedef void (*R4S8CR_HW_rx_irq_cb_t)(uint8_t data);
 
+/*!******************************************************************
+ * \struct R4S8CR_HW_configuration_t
+ * \brief R4S8CR hardware interface parameters.
+ *******************************************************************/
+typedef struct {
+    uint32_t uart_baud_rate;
+    R4S8CR_HW_rx_irq_cb_t rx_irq_callback;
+} R4S8CR_HW_configuration_t;
+
 /*** R4S8CR HW functions ***/
 
 /*!******************************************************************
- * \fn R4S8CR_status_t R4S8CR_HW_init(R4S8CR_HW_rx_irq_cb_t rx_irq_callback)
+ * \fn R4S8CR_status_t R4S8CR_HW_init(R4S8CR_HW_configuration_t* configuration)
  * \brief Init R4S8CR hardware interface.
- * \param[in]   rx_irq_callback: Function to call on byte reception interrupt.
+ * \param[in]   configuration: Pointer to the hardware interface parameters structure.
  * \param[out]  none
  * \retval      Function execution status.
  *******************************************************************/
-R4S8CR_status_t R4S8CR_HW_init(R4S8CR_HW_rx_irq_cb_t rx_irq_callback);
+R4S8CR_status_t R4S8CR_HW_init(R4S8CR_HW_configuration_t* configuration);
 
 /*!******************************************************************
  * \fn R4S8CR_status_t R4S8CR_HW_de_init(void)
@@ -43,6 +52,24 @@ R4S8CR_status_t R4S8CR_HW_init(R4S8CR_HW_rx_irq_cb_t rx_irq_callback);
  * \retval      Function execution status.
  *******************************************************************/
 R4S8CR_status_t R4S8CR_HW_de_init(void);
+
+/*!******************************************************************
+ * \fn R4S8CR_status_t R4S8CR_HW_enable_rx(void)
+ * \brief Enable bus reception.
+ * \param[in]   none
+ * \param[out]  none
+ * \retval      Function execution status.
+ *******************************************************************/
+R4S8CR_status_t R4S8CR_HW_enable_rx(void);
+
+/*!******************************************************************
+ * \fn R4S8CR_status_t R4S8CR_HW_disable_rx(void)
+ * \brief Disable bus reception.
+ * \param[in]   none
+ * \param[out]  none
+ * \retval      Function execution status.
+ *******************************************************************/
+R4S8CR_status_t R4S8CR_HW_disable_rx(void);
 
 /*!******************************************************************
  * \fn R4S8CR_status_t R4S8CR_HW_write(uint8_t* data, uint32_t data_size_bytes)

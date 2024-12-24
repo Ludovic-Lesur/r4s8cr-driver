@@ -17,6 +17,8 @@
 
 /*** R4S8CR local macros ***/
 
+#define R4S8CR_UART_BAUD_RATE               9600
+
 #define R4S8CR_ADDRESS_SIZE_BYTES           1
 #define R4S8CR_RELAY_ADDRESS_SIZE_BYTES     1
 #define R4S8CR_COMMAND_SIZE_BYTES           1
@@ -73,10 +75,13 @@ static void _R4S8CR_flush_buffer(void) {
 R4S8CR_status_t R4S8CR_init(void) {
     // Local variables.
     R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_HW_configuration_t hw_config;
     // Init context.
     _R4S8CR_flush_buffer();
     // Init hardware interface.
-    status = R4S8CR_HW_init(&_R4S8CR_rx_irq_callback);
+    hw_config.uart_baud_rate = R4S8CR_UART_BAUD_RATE;
+    hw_config.rx_irq_callback = &_R4S8CR_rx_irq_callback;
+    status = R4S8CR_HW_init(&hw_config);
     if (status != R4S8CR_SUCCESS) goto errors;
 errors:
     return status;
@@ -144,6 +149,9 @@ R4S8CR_status_t R4S8CR_read(uint8_t relay_box_id, uint8_t* state) {
     // Send command.
     status = R4S8CR_HW_write(command, R4S8CR_COMMAND_BUFFER_SIZE_BYTES);
     if (status != R4S8CR_SUCCESS) goto errors;
+    // Enable receiver.
+    status = R4S8CR_HW_enable_rx();
+    if (status != R4S8CR_SUCCESS) goto errors;
     // Wait reply.
     while (1) {
         // Delay.
@@ -170,6 +178,7 @@ R4S8CR_status_t R4S8CR_read(uint8_t relay_box_id, uint8_t* state) {
         }
     }
 errors:
+    R4S8CR_HW_disable_rx();
     return status;
 }
 

@@ -18,16 +18,32 @@
 /*** R4S8CR HW functions ***/
 
 /*******************************************************************/
-R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_init(R4S8CR_HW_rx_irq_cb_t rx_irq_callback) {
+R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_init(R4S8CR_HW_configuration_t* configuration) {
     // Local variables.
     R4S8CR_status_t status = R4S8CR_SUCCESS;
     /* To be implemented */
-    UNUSED(rx_irq_callback);
+    UNUSED(configuration);
     return status;
 }
 
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_de_init(void) {
+    // Local variables.
+    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    /* To be implemented */
+    return status;
+}
+
+/*******************************************************************/
+R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_enable_rx(void) {
+    // Local variables.
+    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    /* To be implemented */
+    return status;
+}
+
+/*******************************************************************/
+R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_disable_rx(void) {
     // Local variables.
     R4S8CR_status_t status = R4S8CR_SUCCESS;
     /* To be implemented */

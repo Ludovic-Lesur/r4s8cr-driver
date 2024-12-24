@@ -21,3 +21,4 @@ Here is the versions compatibility table:
 |:---:|:---:|:---:|
 | `R4S8CR_DRIVER_DISABLE_FLAGS_FILE` | `defined` / `undefined` | Disable the `s2lp_driver_flags.h` header file inclusion when compilation flags are given in the project settings or by command line. |
 | `R4S8CR_DRIVER_RS485_ERROR_BASE_LAST` | `<value>` | Last error base of the low level RS485 driver. |
+| `R4S8CR_DRIVER_DELAY_ERROR_BASE_LAST` | `<value>` | Last error base of the low level delay driver. |

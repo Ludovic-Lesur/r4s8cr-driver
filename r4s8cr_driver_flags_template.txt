@@ -11,5 +11,6 @@
 /*** R4S8CR driver compilation flags ***/
 
 #define R4S8CR_DRIVER_RS485_ERROR_BASE_LAST     0
+#define R4S8CR_DRIVER_DELAY_ERROR_BASE_LAST     0
 
 #endif /* __R4S8CR_DRIVER_FLAGS_H__ */
