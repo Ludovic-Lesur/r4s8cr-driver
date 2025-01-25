@@ -108,13 +108,13 @@ R4S8CR_status_t R4S8CR_write(uint8_t relay_box_id, uint8_t relay_index, uint8_t 
         status = R4S8CR_ERROR_RELAY_BOX_ID;
         goto errors;
     }
-    if (relay_index > R4S8CR_RELAY_INDEX_MAX) {
+    if ((relay_index < R4S8CR_RELAY_INDEX_MIN) || (relay_index > R4S8CR_RELAY_INDEX_MAX)) {
         status = R4S8CR_ERROR_RELAY_INDEX;
         goto errors;
     }
     // Build command.
     command[0] = R4S8CR_NODE_ADDRESS;
-    command[1] = (relay_box_id * relay_index);
+    command[1] = (uint8_t) (((relay_box_id - 1) << 3) + relay_index);
     command[2] = (state == 0) ? R4S8CR_COMMAND_OFF : R4S8CR_COMMAND_ON;
     // Send command.
     status = R4S8CR_HW_write(command, R4S8CR_COMMAND_BUFFER_SIZE_BYTES);

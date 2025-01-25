@@ -15,13 +15,13 @@
 
 /*** R4S8CR macros ***/
 
-#define R4S8CR_RELAY_INDEX_MIN      0
-#define R4S8CR_RELAY_INDEX_MAX      7
-
-#define R4S8CR_NUMBER_OF_RELAYS     (R4S8CR_RELAY_INDEX_MAX + 1)
-
 #define R4S8CR_RELAY_BOX_ID_MIN     1
 #define R4S8CR_RELAY_BOX_ID_MAX     15
+
+#define R4S8CR_RELAY_INDEX_MIN      1
+#define R4S8CR_RELAY_INDEX_MAX      8
+
+#define R4S8CR_NUMBER_OF_RELAYS     (R4S8CR_RELAY_INDEX_MAX - R4S8CR_RELAY_INDEX_MIN + 1)
 
 /*** R4S8CR structures ***/
 
@@ -69,7 +69,7 @@ R4S8CR_status_t R4S8CR_de_init(void);
  * \fn R4S8CR_status_t R4S8CR_write(uint8_t relay_box_id, uint8_t relay_index, uint8_t state)
  * \brief Set relay state.
  * \param[in]   relay_box_id: Relay box ID (1 to 15 according to DIP switches configuration).
- * \param[in]   relay_index: Relay to control (0 to 7).
+ * \param[in]   relay_index: Relay to control (1 to 8).
  * \param[in]   state: Open the relay if 0, close it otherwise.
  * \param[out]  none
  * \retval      Function execution status.
