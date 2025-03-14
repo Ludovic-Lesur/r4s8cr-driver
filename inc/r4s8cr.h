@@ -11,6 +11,7 @@
 #ifndef R4S8CR_DRIVER_DISABLE_FLAGS_FILE
 #include "r4s8cr_driver_flags.h"
 #endif
+#include "error.h"
 #include "types.h"
 
 /*** R4S8CR macros ***/
@@ -37,7 +38,7 @@ typedef enum {
     R4S8CR_ERROR_RELAY_INDEX,
     R4S8CR_ERROR_READ_TIMEOUT,
     // Low level drivers errors.
-    R4S8CR_ERROR_BASE_RS485 = 0x0100,
+    R4S8CR_ERROR_BASE_RS485 = ERROR_BASE_STEP,
     R4S8CR_ERROR_BASE_DELAY = (R4S8CR_ERROR_BASE_RS485 + R4S8CR_DRIVER_RS485_ERROR_BASE_LAST),
     // Last base value.
     R4S8CR_ERROR_BASE_LAST = (R4S8CR_ERROR_BASE_DELAY + R4S8CR_DRIVER_DELAY_ERROR_BASE_LAST),
