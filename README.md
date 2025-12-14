@@ -21,6 +21,23 @@ Here is the versions compatibility table:
 
 | **Flag name** | **Value** | **Description** |
 |:---:|:---:|:---:|
-| `R4S8CR_DRIVER_DISABLE_FLAGS_FILE` | `defined` / `undefined` | Disable the `s2lp_driver_flags.h` header file inclusion when compilation flags are given in the project settings or by command line. |
+| `R4S8CR_DRIVER_DISABLE_FLAGS_FILE` | `defined` / `undefined` | Disable the `r4s8cr_driver_flags.h` header file inclusion when compilation flags are given in the project settings or by command line. |
 | `R4S8CR_DRIVER_RS485_ERROR_BASE_LAST` | `<value>` | Last error base of the low level RS485 driver. |
 | `R4S8CR_DRIVER_DELAY_ERROR_BASE_LAST` | `<value>` | Last error base of the low level delay driver. |
+
+# Build
+
+A static library can be compiled by command line with `cmake`.
+
+```bash
+mkdir build
+cd build
+cmake -DCMAKE_TOOLCHAIN_FILE="<toolchain_file_path>" \
+      -DTOOLCHAIN_PATH="<arm-none-eabi-gcc_path>" \
+      -DTYPES_PATH="<types_file_path>" \
+      -DEMBEDDED_UTILS_PATH="<embedded-utils_path>" \
+      -DR4S8CR_DRIVER_RS485_ERROR_BASE_LAST=0 \
+      -DR4S8CR_DRIVER_DELAY_ERROR_BASE_LAST=0 \
+      -G "Unix Makefiles" ..
+make all
+```
