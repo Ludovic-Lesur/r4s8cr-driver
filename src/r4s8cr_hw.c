@@ -20,7 +20,7 @@
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_init(R4S8CR_HW_configuration_t* configuration) {
     // Local variables.
-    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_status_t status = R4S8CR_ERROR_HW_FUNCTION_NOT_IMPLEMENTED;
     /* To be implemented */
     UNUSED(configuration);
     return status;
@@ -29,7 +29,7 @@ R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_init(R4S8CR_HW_configuration_t* 
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_de_init(void) {
     // Local variables.
-    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_status_t status = R4S8CR_ERROR_HW_FUNCTION_NOT_IMPLEMENTED;
     /* To be implemented */
     return status;
 }
@@ -37,7 +37,7 @@ R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_de_init(void) {
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_enable_rx(void) {
     // Local variables.
-    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_status_t status = R4S8CR_ERROR_HW_FUNCTION_NOT_IMPLEMENTED;
     /* To be implemented */
     return status;
 }
@@ -45,7 +45,7 @@ R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_enable_rx(void) {
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_disable_rx(void) {
     // Local variables.
-    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_status_t status = R4S8CR_ERROR_HW_FUNCTION_NOT_IMPLEMENTED;
     /* To be implemented */
     return status;
 }
@@ -53,7 +53,7 @@ R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_disable_rx(void) {
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_write(uint8_t* data, uint32_t data_size_bytes) {
     // Local variables.
-    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_status_t status = R4S8CR_ERROR_HW_FUNCTION_NOT_IMPLEMENTED;
     /* To be implemented */
     UNUSED(data);
     UNUSED(data_size_bytes);
@@ -63,7 +63,7 @@ R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_write(uint8_t* data, uint32_t da
 /*******************************************************************/
 R4S8CR_status_t __attribute__((weak)) R4S8CR_HW_delay_milliseconds(uint32_t delay_ms) {
     // Local variables.
-    R4S8CR_status_t status = R4S8CR_SUCCESS;
+    R4S8CR_status_t status = R4S8CR_ERROR_HW_FUNCTION_NOT_IMPLEMENTED;
     /* To be implemented */
     UNUSED(delay_ms);
     return status;
